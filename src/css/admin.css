@@ -1,0 +1,546 @@
+    html,
+    body {
+      height: 100vh;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #app {
+      height: 100vh;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .topbar {
+      background-color: #f8f9fa;
+
+      height: 70px;
+      border-bottom: #cfd0d1 1px solid;
+
+    }
+
+    .main_content {
+      height: calc(100vh - 70px);
+      display: flex;
+      background-color: white;
+    }
+
+    .content {
+      padding: 0 2% 0 2%;
+    }
+
+    /* <section class="home-banner"> */
+
+    .home-banner {
+      position: relative;
+      background-image: url('../assets/logo6.png');
+      width: 100vw;
+      /* 或者指定宽度 */
+      height: 100vh;
+      /* 或者指定高度 */
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .home-banner .container {
+      position: relative;
+      z-index: 5;
+
+      .banner-title {
+        padding-top: 12%;
+        color: white
+      }
+    }
+
+    .home-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 60px;
+      left: 0;
+      background: rgba(0, 0, 0, 0.4);
+      /* 这里的最后一个值调整透明度 */
+      z-index: 1;
+    }
+
+    /* topheader: 所有项目，我的项目 */
+
+    .topheader {
+      height: 60px;
+      width: 100vw;
+      background-color: #051c23;
+    }
+
+    .topheader ul {
+      display: flex;
+      align-items: center;
+    }
+
+    .topheader button {
+      width: 80px;
+      height: 30px;
+      background-color: #454de5;
+      color: white;
+      border: 1px solid #454de5;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-left: 20px;
+    }
+
+    .project-link {
+      text-decoration-line: none;
+    }
+
+    /* link-btn: 所有项目，我的项目 */
+    .link-btn {
+      color: #d2d2d2;
+    }
+
+    .link-btn:hover {
+      color: #eae8e8;
+    }
+
+    .banner-row {
+      position: relative;
+      z-index: 3;
+    }
+
+    .banner-content {
+      position: relative;
+      width: 1000px;
+      z-index: 3;
+      align-items: center;
+      justify-content: center;
+      margin-left: 80px;
+    }
+
+    .banner-content .banner-title {
+      position: relative;
+      z-index: 3;
+      font-size: 60px;
+      color: #db0606;
+      line-height: 1.2;
+      font-weight: 900;
+      margin-bottom: 30px;
+    }
+
+    .primary-color {
+      z-index: 3;
+      color: #FFDA0F;
+    }
+
+    .banner-content .banner-text p {
+      position: relative;
+      z-index: 3;
+      color: #ffffff;
+      margin-bottom: 45px;
+      font-size: 16px;
+    }
+
+    .banner-button {
+      .button-round {
+        text-decoration: none;
+        color: #0d1417;
+      }
+
+      .button-round:hover {
+        color: #f9f9f9;
+        transition: ease-in-out .2s;
+      }
+
+      /* circle: learn more, 给我杯咖啡 */
+
+      .circle {
+        border: none;
+        /* 没有边框 */
+        border-radius: 20px;
+        padding: 10px 20px;
+        background-color: #FFDA0F;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        margin-left: 2%;
+        margin-right: 2%;
+      }
+    }
+
+    .circle::before {
+      content: "";
+      position: relative;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      width: 1rem;
+      height: 1rem;
+      transform: translate3d(-50%, -50%, 0) scale(0, 0);
+      border-radius: 50%;
+      background-color: #d7bc20;
+      transform-origin: center;
+      transition: ease-in-out .5s;
+    }
+
+    .circle:hover::before {
+      transform: translate3d(-50%, -50%, 0) scale(15, 15);
+      color: #f8f9fa;
+    }
+
+    /* 搜索框 */
+
+    .search-top {
+      width: 70%;
+      left: 15%;
+      top: 50px;
+      border: 1px solid #dee2e6;
+      border-radius: 10px;
+      z-index: 5;
+
+      button {
+        background-color: #5ea2f7;
+        width: 20%;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+    }
+
+    .search-top {
+      transition: all 0.3s;
+      /* 其他非粘性样式 */
+    }
+
+    .sticky {
+      position: fixed;
+      left: 50px;
+      top: 80px;
+      width: 650px;
+      z-index: 4;
+      border: 2px solid #5ea2f7;
+      /* 粘性样式 */
+    }
+
+    /* 导航栏的样式 */
+    .top-nav {
+      position: fixed;
+      height: 120px;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 1px 5px -1px rgba(0, 0, 0, 0.5);
+      z-index: 4;
+    }
+
+    /* 左侧内容 */
+    .content-main {
+      flex: 1;
+    }
+
+    .project-home {
+      width: 1180px;
+      margin: 0 auto;
+      padding: 20px 0 60px;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    .project-home .project-home-content {
+      width: 830px;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    /* 项目列表 */
+    .project-home-tab-content-list {
+      .item-content {
+        padding: 40px 0 40px 0;
+
+        .item-content-title {
+          display: flex;
+          align-items: center
+        }
+
+        .item-content-title-n {
+          font-size: 18px;
+          color: #0d1417;
+        }
+
+        .item-content-title-n:hover {
+          color: #454de5;
+        }
+
+        .item-content-title img {
+          margin-right: 10px;
+          width: 24px;
+          height: 24px;
+          line-height: 24px;
+        }
+
+        .item-content-msg {
+
+          .fedml-user-name {
+            color: #2b2b2b;
+          }
+
+          .item-content-msg-tags-tag {
+            color: #666;
+          }
+
+        }
+      }
+
+      .project-home-tab-content-list-item {
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      /* 项目介绍 */
+      .item-content-abs-public {
+        font-size: 14px;
+        line-height: 14px;
+        color: #666;
+        margin: 16px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+    }
+
+    .item-content-msg {
+      display: flex;
+      height: 26px;
+      line-height: 26px;
+
+      .item-content-msg-user {
+        display: flex;
+
+        .fedml-user-name {
+          padding: 0 10px;
+        }
+      }
+
+      .fedml-user-avatar .fedml-user-avatar-img {
+        width: 26px;
+        height: 26px;
+        align-items: center;
+        display: flex;
+      }
+    }
+
+    /* 右侧card */
+
+    .project-home-recommend {
+      width: 300px;
+    }
+
+    .project-home-recommend-card {
+      border: 1px solid #dee2e6;
+      margin: 30px 0 50px 0;
+
+    }
+
+    .project-home-right {
+      display: inline-block;
+      margin: 0 0 0 50px;
+    }
+
+    /* card-header1 */
+    .project-home-recommend-card-title {
+      background-image: url('../assets/card-header1.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 90px;
+      width: 300px;
+      margin-bottom: 20px;
+    }
+
+    .project-home .project-home-recommend-card-content-ul-li {
+      line-height: 24px;
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+
+      a {
+        font-size: 14px;
+        color: black;
+      }
+
+      a:hover {
+        color: #454de5;
+      }
+    }
+
+    .project-home .project-home-recommend-top {
+      color: #ea2e2e;
+    }
+
+    .project-home .project-home-recommend-card-content-ul-li-index {
+      margin-right: 7px;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    /* 底部索引栏 */
+    .project-home-tab-content-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 80px;
+
+      .ant-pagination {
+        display: flex;
+        list-style: none;
+      }
+
+      .ant-pagination .ant-pagination-item {
+        margin: 0 5px;
+        text-align: center;
+      }
+
+      .ant-pagination a {
+        display: flex;
+        color: black;
+        font-size: 15px;
+        border: 1px solid #e8e8e8;
+        border-radius: 2px;
+        padding: 6px 12px;
+      }
+
+      .ant-pagination a:hover {
+        color: #454de5;
+        border-color: #454de5;
+      }
+
+      .ant-pagination button {
+        display: flex;
+        margin: 0 5px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        border: 1px solid #e8e8e8;
+      }
+
+      .ant-pagination button img {
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    /* 最底部 */
+    .home-footer {
+      display: flex;
+      height: 300px;
+      width: 100%;
+      background-color: #1a1a1a;
+    }
+
+    .home-footer-content {
+      display: flex;
+      flex-direction: column;
+      text-align-last: left;
+      margin-left: 50px;
+      width: 200px;
+      height: 300px;
+
+      .home-footer-title {
+        padding-top: 50px;
+        color: white;
+        font-size: 18px;
+      }
+    }
+
+    .home-footer-main-content {
+      width: 200px;
+      height: 20px;
+      color: #b1b1b1;
+      font-size: 14px;
+      padding: 20px 0;
+
+      a {
+        text-decoration: none;
+        color: #b1b1b1;
+      }
+
+      a:hover {
+        color: #454de5
+      }
+    }
+
+    .home-footer-about {
+      width: 300px;
+      margin-right: 50px;
+    }
+
+    .home-footer-about-main-content {
+      color: #b1b1b1;
+      font-size: 14px;
+      padding-top: 20px;
+    }
+
+    /* 创建项目弹窗  */
+
+    .modal-content {
+      width: 600px;
+      height: 500px;
+    }
+
+    .modal-body {
+      display: flex;
+      flex-direction: column;
+      text-align-last: left;
+      margin-left: 50px;
+      width: 500px;
+      height: 400px;
+    }
+
+    .modal-body-content {
+      width: 300px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .modal-body .modal-body-project-span {
+      width: 80px;
+      height: 30px;
+      display: flex;
+    }
+
+    .modal-body-title-desc {
+      margin-top: 10px;
+    }
+
+    #model-body-project-desc {
+      margin-top: 10px;
+      width: 450px;
+      height: 100px;
+    }
+
+    .modal-footer {
+      width: 100%;
+      height: 60px;
+    }
+
+    .modal-body-project-name input {
+      width: 370px;
+      height: 40px;
+    }
+
+    .modal-body-project-type select {
+      width: 200px;
+      height: 40px;
+    }
